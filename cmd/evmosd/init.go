@@ -97,7 +97,8 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 
 			config.SetRoot(clientCtx.HomeDir)
 
-			chainID, _ := cmd.Flags().GetString(flags.FlagChainID)
+			sdk.DefaultBondDenom = "aevmos"
+				chainID, _ := cmd.Flags().GetString(flags.FlagChainID)
 			if chainID == "" {
 				chainID = fmt.Sprintf("evmos_9000-%v", tmrand.Str(6))
 			}
